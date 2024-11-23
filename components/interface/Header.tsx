@@ -1,18 +1,17 @@
 import { useState, useEffect, useRef } from "react";
 import { FaSun, FaMoon, FaBook } from "react-icons/fa";
-import { LuJapaneseYen, LuClapperboard } from "react-icons/lu";
-import { PiTelevision } from "react-icons/pi";
-import { VscChromeClose } from "react-icons/vsc";
+import { LuJapaneseYen } from "react-icons/lu";
 import { CgSearch } from "react-icons/cg";
 import Logo from "@/components/interface/Logo";
 import Link from "next/link";
-import SearchInput from "@/components/interface/SearchInput";
 
 interface HeaderProps {
   theme: string;
   toggleTheme: () => void;
-  bg?: boolean;
-  manga?: boolean;
+  search: boolean;
+  bg: boolean;
+  type?: string;
+  manga: boolean;
 }
 
 function Header({ theme, toggleTheme, bg = false, manga }: HeaderProps) {
@@ -62,14 +61,6 @@ function Header({ theme, toggleTheme, bg = false, manga }: HeaderProps) {
                 <span>Manga</span>
               </button>
             </Link>
-            {/* <button title="Movies" className="transition-all dark:text-secondary text-primary hover:bg-secondary-hover dark:hover:bg-primary-light py-2 px-5 my-auto rounded-lg flex flex-row space-x-2">
-              <LuClapperboard className="mt-1" />
-              <Link href={`/movies`}>Movies</Link>
-            </button>
-            <button title="Shows" className="transition-all dark:text-secondary text-primary hover:bg-secondary-hover dark:hover:bg-primary-light py-2 px-5 my-auto rounded-lg flex flex-row space-x-2">
-              <PiTelevision className="mt-1" />
-              <Link href={`/shows`}>Shows</Link>
-            </button> */}
           </div>
         </div>
         <div className={`flex justify-end items-center`}>
@@ -94,9 +85,6 @@ function Header({ theme, toggleTheme, bg = false, manga }: HeaderProps) {
         onClick={() => setIsMenuOpen(false)}
         className={`transition-all pt-2 p-5 z-30 fixed ${isMenuOpen ? "top-0 left-0 right-0 bottom-0" : "-top-full"} w-screen flex items-center justify-center transform transition-transform ${isMenuOpen ? "scale-100" : "scale-0"}`}
       >
-        <div onClick={(e) => e.stopPropagation()}>
-          <SearchInput />
-        </div>
       </div>
     </>
   );

@@ -4,31 +4,17 @@ import Footer from "@/components/interface/Footer";
 import Header from "@/components/interface/Header";
 import { useCookies } from 'react-cookie';
 
-function MainLayout({ children, useHead = true, banner, search = true, landing = false, type, manga = false }) {
-  // const [hour, setHour] = useState();
+interface MainLayoutProps {
+  children: React.ReactNode;
+  useHead?: boolean;
+  banner?: string;
+  search?: boolean;
+  landing?: boolean;
+  type?: string;
+  manga?: boolean;
+}
 
-  // useEffect(() => {
-  //   const time = new Date();
-  //   setHour(time.getHours());
-  // });
-
-  // var backgroundClass;
-
-  // // Define the time ranges for day and night
-  // const dawn = "06"; // 6 AM
-  // const noon = "12"; // 12 PM
-  // const dusk = "16"; // 4 PM
-  // const night = "20"; // 8 PM
-
-  // if (hour >= dawn && hour < noon) {
-  //   backgroundClass = "from-[#CF9E57] to-[#19547B]";
-  // } else if (hour >= noon && hour < dusk) {
-  //   backgroundClass = "from-[#507b98] to-[#003973]";
-  // } else if (hour >= dusk && hour < night) {
-  //   backgroundClass = "from-[#7b3737] to-[#2C3E50]";
-  // } else {
-  //   backgroundClass = "from-[#141E30] to-[#243B55]";
-  // }
+function MainLayout({ children, useHead = true, banner, search = true, landing = false, type, manga = false }: MainLayoutProps) {
   const [cookies, setCookie] = useCookies(['theme']);
   const [theme, setTheme] = useState(cookies.theme || 'dark');
 
@@ -37,7 +23,7 @@ function MainLayout({ children, useHead = true, banner, search = true, landing =
   }, [theme]);
 
   const toggleTheme = () => {
-    setTheme(prevTheme => prevTheme === 'dark' ? 'light' : 'dark');
+    setTheme((prevTheme: string) => prevTheme === 'dark' ? 'light' : 'dark');
   };
 
   return (
