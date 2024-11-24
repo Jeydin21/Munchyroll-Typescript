@@ -1,10 +1,27 @@
 import Link from "next/link";
+import { Icon, Icons } from "@/components/Icon";
 
-function Logo({ hover = true }) {
+interface LogoProps {
+  clickable?: boolean;
+}
+
+function Logo({ clickable }: LogoProps) {
   return (
-    <Link href="/">
-      <div title="Munchyroll" className={`dark:text-secondary text-primary text-3xl font-black ${hover === true ? "hover:scale-105" : ""} transition-all`}>Munchyroll</div>
-    </Link>
+    <>
+      {clickable ? (
+        <Link href="/">
+          <div className="transition-all flex flex-row items-center space-x-2 text-white bg-slate-600 bg-opacity-50 rounded-full px-4 py-2 hover:scale-105 hover:bg-slate-600 backdrop-blur-lg active:scale-95">
+            <Icon icon={Icons.MOVIE_WEB} className="text-xl text-purple-400" />
+            <h1 className="text-xl font-semibold">Munchyroll</h1>
+          </div>
+        </Link>
+      ) : (
+          <div className="transition-all flex flex-row items-center space-x-2 text-white bg-slate-600 bg-opacity-50 rounded-full px-4 py-2">
+            <Icon icon={Icons.MOVIE_WEB} className="text-xl text-purple-400" />
+            <h1 className="text-xl font-semibold">Munchyroll</h1>
+          </div>
+      )}
+    </>
   );
 }
 

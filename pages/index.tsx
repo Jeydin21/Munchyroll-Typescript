@@ -42,7 +42,7 @@ export default function Home() {
         <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
       </Head>
 
-      <MainLayout search={false} landing={true}>
+      <MainLayout>
         <LandingPage />
       </MainLayout>
     </>
