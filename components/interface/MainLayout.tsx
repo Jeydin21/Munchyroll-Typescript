@@ -51,15 +51,19 @@ function MainLayout({ children, useHead = true }: MainLayoutProps) {
         </Head>
       )}
 
-      <div className="p-2">
-        <Header />
-        <div className="flex">
-          <div className="z-10 w-full px-5 min-h-[90vh]">
-            {children}
-          </div>
+      <div
+        className="p-2 absolute inset-0 bg-gradient-to-b from-[#1a1240] to-[#1e1e42]"
+        style={{
+          backgroundImage: 'linear-gradient(to bottom, #1e1e42 0%, transparent 50%)'
+        }}
+      />
+      <Header />
+      <div className="flex">
+        <div className="z-10 w-full px-5 min-h-[90vh]">
+          {children}
         </div>
-        <Footer />
       </div>
+      <Footer />
     </div>
   );
 }
