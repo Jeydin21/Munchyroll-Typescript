@@ -42,24 +42,11 @@ export default function Hero() {
           <span className="block">{timeMessage}</span>
         </h1>
 
-        <div className="flex flex-row items-center w-full mt-4 bg-slate-800 rounded-full">
-          <Icon icon={Icons.SEARCH} className="text-xl text-[#60527A] ml-4" />
-          <input
-            type="text"
-            placeholder="What do you want to watch?"
-            className="w-full px-4 py-4 placeholder-[#60527A] rounded-full focus:outline-none bg-slate-800"
-          />
-        </div>
-
-        <button className="px-14 py-3 bg-[#2d263a] transition-all rounded-lg text-[#756790] font-bold scale-90 hover:scale-95 duration-200">
-          Browse
-        </button>
-      </div>
-
       {/* Gradient background */}
 
       {/* Particles */}
       {/* <ParticleBackground /> */}
     </div>
+  </div>
   )
 }
