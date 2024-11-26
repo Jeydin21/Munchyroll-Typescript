@@ -51,19 +51,20 @@ function MainLayout({ children, useHead = true }: MainLayoutProps) {
         </Head>
       )}
 
-      <div
-        className="p-2 absolute inset-0 bg-gradient-to-b from-[#1a1240] to-[#1e1e42]"
-        style={{
-          backgroundImage: 'linear-gradient(to bottom, #1e1e42 0%, transparent 50%)'
-        }}
-      />
-      <Header />
-      <div className="flex">
-        <div className="z-10 w-full px-5 min-h-[90vh]">
-          {children}
+      <div className="min-h-screen flex flex-col">
+        <div
+          className="fixed inset-0 bg-gradient-to-b from-[#1a1240] to-[#1e1e42] z-0"
+          style={{
+            backgroundImage: 'linear-gradient(to bottom, #1e1e42 0%, transparent 50%)'
+          }}
+        />
+
+        <Header />
+        <div className="flex flex-1 flex-col z-10 w-full px-5">
+          <main className="flex-1">{children}</main>
+          <Footer />
         </div>
       </div>
-      <Footer />
     </div>
   );
 }

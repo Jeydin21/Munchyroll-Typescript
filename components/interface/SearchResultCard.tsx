@@ -12,7 +12,7 @@ interface SearchResultCardProps {
   releaseDate: string;
 }
 
-const SearchResultCard: React.FC<SearchResultCardProps> = ({ id, title, imageUrl, status, releaseDate }) => {
+function SearchResultCard({ id, title, imageUrl, status, releaseDate }: SearchResultCardProps) {
   return (
     <>
       <Link href={"/media/" + id}>
